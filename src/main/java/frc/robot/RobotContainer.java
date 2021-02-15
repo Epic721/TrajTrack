@@ -61,6 +61,7 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
         // hand, and turning controlled by the right.
+        //Set as Default command???
         new RunCommand(
             () ->
                 m_robotDrive.arcadeDrive(
@@ -124,7 +125,7 @@ public class RobotContainer {
 //             new Pose2d(3, 0, new Rotation2d(0)),
 //             // Pass config
 //             config);
-String trajectoryJSON = "paths/YourPath.wpilib.json"; //NEED TO REPLACE YourPath WITH PATH NAME?
+String trajectoryJSON = "paths/TestCircle.wpilib.json"; //NEED TO REPLACE YourPath WITH PATH NAME?->DONE?
 Trajectory trajectory = new Trajectory();
 try {
   Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
