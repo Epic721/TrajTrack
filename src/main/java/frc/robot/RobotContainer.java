@@ -125,7 +125,7 @@ public class RobotContainer {
 //             new Pose2d(3, 0, new Rotation2d(0)),
 //             // Pass config
 //             config);
-String trajectoryJSON = "paths/TestCircle.wpilib.json"; //NEED TO REPLACE YourPath WITH PATH NAME?->DONE?
+String trajectoryJSON = "paths/SlalomPath.wpilib.json"; //NEED TO REPLACE YourPath WITH PATH NAME?->DONE?
 Trajectory trajectory = new Trajectory();
 try {
   Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
