@@ -90,6 +90,8 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
 
     // Create a voltage constraint to ensure we don't accelerate too fast
+
+    /* -> ALREADY CONFIGURED IN PATHWEAVER PREFERENCES (IN "CREATE PROJECT" MENU)/ NEED TO ADD VOLTAGE CONSTRAINT???
     var autoVoltageConstraint = //lambda var
         new DifferentialDriveVoltageConstraint(
             new SimpleMotorFeedforward(
@@ -108,7 +110,7 @@ public class RobotContainer {
             .setKinematics(DriveConstants.kDriveKinematics)
             // Apply the voltage constraint
             .addConstraint(autoVoltageConstraint);
-
+*/
 
 
     // An example trajectory to follow.  All units in meters. WE ARE USING PATHWEAVER FOR THIS!!!!!
