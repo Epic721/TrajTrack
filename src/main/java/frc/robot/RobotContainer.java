@@ -51,8 +51,10 @@ public class RobotContainer {
   // The driver's controller
   XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+
+  /** The constructor for the container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+
     // Configure the button bindings
     configureButtonBindings();
 
@@ -61,7 +63,7 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
         // hand, and turning controlled by the right.
-        //Set as Default command???
+        //Set as Default command during tele-op
         new RunCommand(
             () ->
                 m_robotDrive.arcadeDrive(
@@ -70,18 +72,22 @@ public class RobotContainer {
             m_robotDrive));
   }
 
+
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then calling passing it to a
    * {@link JoystickButton}.
    */
+
+
   private void configureButtonBindings() {
-    // Drive at half speed when the right bumper is held-> THIS IS NOT OUR CODE
+    // Drive at half speed when the right bumper is held-> POTENTIAL HYPERDRIVE CONTROL ADDITION
     new JoystickButton(m_driverController, Button.kBumperRight.value)
         .whenPressed(() -> m_robotDrive.setMaxOutput(0.5))
         .whenReleased(() -> m_robotDrive.setMaxOutput(1));
   }
+
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -159,4 +165,6 @@ catch (IOException ex) {
     // Run path following command, then stop at the end.
     return ramseteCommand.andThen(() -> m_robotDrive.tankDriveVolts(0, 0));
   }
+
+  
 }

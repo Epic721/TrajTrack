@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
+import edu.wpi.first.wpilibj.util.Units;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -38,15 +39,16 @@ public final class Constants {
     public static final boolean kRightEncoderReversed = true;*/
     //void
 
-    public static final double kTrackwidthMeters = 0.69; //27 inches
+    public static final double kTrackwidthMeters = Units.inchesToMeters(27); //27 inches
     public static final DifferentialDriveKinematics kDriveKinematics =
         new DifferentialDriveKinematics(kTrackwidthMeters);
 
     public static final int kEncoderCPR = 2048; //https://docs.ctre-phoenix.com/en/latest/ch14_MCSensor.html
     public static final double kWheelDiameterMeters = 0.15; //6 inches
+    public static final double kGearReduction = 10.71;
     public static final double kEncoderDistancePerPulse =
-        // Assumes the encoders are directly mounted on the wheel shafts
-        (kWheelDiameterMeters * Math.PI) / (double) kEncoderCPR;
+        ((kWheelDiameterMeters * Math.PI) / (double) kEncoderCPR) / kGearReduction; 
+    public static final double kWheelDistancePerPulse = kEncoderDistancePerPulse/ kGearReduction; //DISTANCE PER PULSE OF WHEEL= (OUTER CIRCUMFERENCE OF WHEEL)/(ENCODER CPR*GEAR REDUCTION)
 
     // These are example values only - DO NOT USE THESE FOR YOUR OWN ROBOT!
     // These characterization values MUST be determined either experimentally or theoretically
