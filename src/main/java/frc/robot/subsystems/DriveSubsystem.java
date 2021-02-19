@@ -84,7 +84,7 @@ public class DriveSubsystem extends SubsystemBase {
    * @return The current wheel speeds.
    */
   public DifferentialDriveWheelSpeeds getWheelSpeeds() {//USED TO UPDATE RAMSETE CONTROLLER (IN ROBOT CONTAINER) WITH THE SPEEDS SO THAT IT CAN PERFORM PID ON THEM 
-    return new DifferentialDriveWheelSpeeds(getWheelDistance(leftMaster), getWheelDistance(rightMaster));
+    return new DifferentialDriveWheelSpeeds(getWheelVelocity(leftMaster), getWheelVelocity(rightMaster));
   }
 
   /**
